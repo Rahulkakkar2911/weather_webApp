@@ -1,0 +1,23 @@
+{
+  "name": "wheather_webapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rahulkakkar2911/wheather_webApp.git"
+  },
+  "author": "Rahul Kakkar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rahulkakkar2911/wheather_webApp/issues"
+  },
+  "homepage": "https://github.com/Rahulkakkar2911/wheather_webApp#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  }
+}
