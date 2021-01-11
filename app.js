@@ -2,24 +2,25 @@
 
 const express = require("express");
 const https = require("https");
-const bodyParser = require("body-parser")
+const bodyParser = require("body-parser");
+const ejs = require('ejs');
 const app = express();
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static('public'));
-
+app.set('view engine' , 'ejs');
 // Performing the get request => when the user make a request on his browser to the home route ,the below callback function responds to the GET request.
 
 
 app.get("/", function(req,res){
     
-    res.sendFile(__dirname + "/index.html");
+    res.render('index');
     
 })
 
 app.post("/", function(req,res){
    const query = String(req.body.cityName);
-   const apiKey =  "1e92c02b348e43b2ba3e98030de0bcca";
+   const apiKey =  "{demo_api}";
    const unit = req.body.unit;
    const apiEndPoint = "https://api.openweathermap.org/data/2.5/weather?"
    const url = apiEndPoint +"appid=" + apiKey +"&q=" + query + "&units=" + unit;
