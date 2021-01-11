@@ -6,6 +6,7 @@ const bodyParser = require("body-parser")
 const app = express();
 
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(express.static('public'));
 
 // Performing the get request => when the user make a request on his browser to the home route ,the below callback function responds to the GET request.
 
@@ -18,8 +19,8 @@ app.get("/", function(req,res){
 
 app.post("/", function(req,res){
    const query = String(req.body.cityName);
-   const apiKey =  "{demo_api}";
-   const unit = "metric"
+   const apiKey =  "1e92c02b348e43b2ba3e98030de0bcca";
+   const unit = req.body.unit;
    const apiEndPoint = "https://api.openweathermap.org/data/2.5/weather?"
    const url = apiEndPoint +"appid=" + apiKey +"&q=" + query + "&units=" + unit;
    
@@ -29,10 +30,10 @@ app.post("/", function(req,res){
                 
                 const weatherData = JSON.parse(data);
                 const temp = weatherData.main.temp;
-                const wheatherDesc = weatherData.weather[0].description;
+                const weatherDesc = weatherData.weather[0].description;
                 const icon = weatherData.weather[0].icon;
                 const icon_url = "http://openweathermap.org/img/wn/"+icon+"@2x.png"
-                res.write("<h1>The weather is Currently " + wheatherDesc + "</h1>");
+                res.write("<h1>The weather is Currently " + weatherDesc + "</h1>");
                 res.write("<h1>Temperature in "+ query + " is " + temp + " &degC</h1>");
                 res.write("<img src =" + icon_url + ">")
                 res.send();

@@ -3,13 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
     <title>Weather App</title>
 </head>
 <body>
-    <form action="/" method="post">
-        <label for="cityInput">City Name :</label>
-        <input type="text" name="cityName" id="cityInput">
-        <button type="submit">Get</button>
-    </form>
+    <div class="container">
+    <form action="/" method="POST">
+        <h1 class="heading">Weather WebApp</h1>
+        <div class="line"></div>
+        <p>
+            City: 
+            <input type="text" name="cityName" id="cityInput" placeholder="Delhi" required autocomplete="off">
+        </p>
+                <p>
+                Unit:
+                <select name="unit" id="unit" required>
+                <option value="">--Select Unit Type--</option>
+                <option value="standard">Standard</option>
+                <option value="metric">Metric</option>
+                <option value="imperial">Imperial</option>
+                </select>
+                </p>
+            <button id="button" type="submit">Get Now</button>
+        </form>
+    </div>
 </body>
 </html>
